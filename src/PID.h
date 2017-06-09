@@ -16,6 +16,26 @@ public:
   double Kp;
   double Ki;
   double Kd;
+	double p[3];
+	
+	/* 
+	* Error values
+	*/
+	double prev_cte;
+	double error;
+	double steer;
+	
+	/* 
+	* Twiddle values
+	*/
+	double best_error;
+	double tol;
+	int iter;
+	int twiddle_update;
+	int param;
+	int stage;
+	double dp[3];
+	double sum_dp;
 
   /*
   * Constructor
@@ -30,17 +50,22 @@ public:
   /*
   * Initialize PID.
   */
-  void Init(double Kp, double Ki, double Kd);
+  void Init();
 
   /*
   * Update the PID error variables given cross track error.
   */
-  void UpdateError(double cte);
+  double SteerCommand(double cte);
+	
+  /*
+  * Twiddle the PID values
+  */
+  void Twiddle();
 
   /*
   * Calculate the total PID error.
   */
-  double TotalError();
+  double TotalError(double cte);
 };
 
 #endif /* PID_H */
