@@ -46,4 +46,4 @@ Twiddle - This optimization algorithm continuously tries different PID parameter
 While it should have been expected, I was somewhat surprised to find that the twiddle updates would move the integral gain to nearly zero. The simulator vehicle has no offsets in its steering behavior, so the integral term is not needed for this simple application. Using live fine-tuning twiddle algorithm typically produced proportional gain Kp ~= 0.2 and Kd ~= 10.0. This allowed for the vehicle to drive smoothely and consistently around the track. A video is linked below.
 
 <img src="images/TwiddleVideo.png" width="800">
-Youtube Link:
+Youtube Link: https://youtu.be/wlMehF2UGuw
