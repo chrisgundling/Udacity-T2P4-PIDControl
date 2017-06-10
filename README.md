@@ -48,4 +48,4 @@ While it should have been expected, I was somewhat surprised to find that the tw
 My original goal was to try to set the PID gains all to small values and use live twiddle updates to determine the parameter values from scratch. This did not work as the car would get off the simulator track before the twiddle had enough time to optimize the parameters. The solution was to get rough numbers for the parameters by collecting 'training data' and using twiddle. Then I could use the live twiddle updates to fine tune the controller.
 
 <img src="images/TwiddleVideo.png" width="800">
-Youtube Link: https://youtu.be/wlMehF2UGuw
+Youtube Link: https://youtu.be/l7uFUS7mHZI
