@@ -24,7 +24,7 @@ By: Chris Gundling
 The goal of this project was to implement a PID controller for autonomous vehicle steering control. A Unity simulator was used to test out the implementation. The vehicle's cross track error was used for the controller. After initially collecting some data from the simulator, a twiddle algorithm was used to optimize the PID parameters. Once the PID parameters were good enough to get the vehicle driving mostly within the lanes, a live fine-tuning twiddle was setup to continuously adjust the parameters to achieve the best cross track error.
 
 ## PID Controllers
-PID controllers use a combination of Proportional (P), Integral (I) and Derivative (D) components to reduce the error in the system. The effect of each of these components along with plots are described below:
+PID controllers use a combination of Proportional (P), Integral (I) and Derivative (D) components to reduce the error in the system. The effect of each of these components along with plots are described below. A Python Notebook script was created to test different implementations of controllers using the Robot Class.
 
 Proportional - Low proportional gain will cause the vehicle to oscillate and the cross-track error will continue to be high. Increasing the proportional gain helps, but the vehicle can also get out of control if it gets too far from the center line of the track. Using only a proportional controller would cause the vehicle to constantly overshoot its desired trajectory.
 
