@@ -28,9 +28,19 @@ PID controllers use a combination of Proportional (P), Integral (I) and Derivati
 
 Proportional - Low proportional gain will cause the vehicle to oscillate and the cross-track error will continue to be high. Increasing the proportional gain helps, but the vehicle can also get out of control if it gets too far from the center line of the track. Using only a proportional controller would cause the vehicle to constantly overshoot its desired trajectory.
 
-Integral - The integral term controls the offset of the vehicle. If there is some inherent offet built into the system or introduced to the system, the integral term will sum up the CTE over time and correct for this error. If the integral gain is too high it can lead to large oscillations and too low can take too long correct for offsets.
+<img src="images/P.png" width="600">
 
 Derivative - Low derivative gain leads to an underdamped system that is similar to only using a P-controller. Too high derivative gain will cause an overdamped system that takes an extremely long time to return the desired path. Selecting the right derivative gain allows the vehicle to return to the desired path quickly and then maintains a small cross track error rate (critically damped). 
+
+<img src="images/PD.png" width="600">
+
+Integral - The integral term controls the offset of the vehicle. If there is some inherent offet built into the system or introduced to the system, the integral term will sum up the CTE over time and correct for this error. If the integral gain is too high it can lead to large oscillations and too low can take too long correct for offsets.
+
+<img src="images/PID.png" width="600">
+
+Twiddle - This optimization algorithm continuously tries different PID parameter values and compares the current error to the best ever error in order to decide on whether to except the update. In this way, the best controller values can be learned over several iterations. The following plot shows the results of all the different types of controller, with the twiddle perfoming the best.
+
+<img src="images/Twiddle.png" width="600">
 
 ## Reflections
 While it should have been expected, I was somewhat surprised to find that the twiddle updates would move the integral gain to nearly zero. The simulator vehicle has no offsets in its behavior, so the integral term is not needed for this simple application. Using live fine-tuning twiddle algorithm typically produced proportional gain Kp ~= 10 and Kd ~= 0.2. This allowed for the vehicle to drive smoothely and consistently around the track. 
